@@ -1,0 +1,42 @@
+{
+  "name": "challenge_MeLi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "babel-node": "babel-node --presets=latest",
+    "build:static": "webpack && babel-node tools/index.js",
+    "build:server": "babel src --out-dir dist",
+    "build:client": "webpack",
+    "build": "npm run build:client && npm run build:server",
+    "start:server": "nodemon --exec npx babel-node -- src/server/index.js",
+    "start:client": "webpack --watch",
+    "start:json": "json-server db.json --port 4000",
+    "start": "npm run start:client & npm run start:server & npm run start:json"
+  },
+  "keywords": [],
+  "author": "Menyin Chang <contacto@menyinchang.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.13.0",
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.13.0",
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "@babel/preset-env": "^7.13.5",
+    "@babel/preset-react": "^7.9.4",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^5.0.2",
+    "mini-css-extract-plugin": "^1.3.8",
+    "sass-loader": "^10.1.1",
+    "webpack": "^5.15.0",
+    "webpack-cli": "^4.3.1",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "express": "^4.17.1",
+    "json-server": "^0.16.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
