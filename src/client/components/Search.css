@@ -1,0 +1,65 @@
+.container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 16px (1fr)[10] 16px;
+      grid-template-columns: 16px repeat(10, 1fr) 16px;
+  width: 100%;
+  max-width: 576px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+.search {
+  -ms-grid-column: 3;
+      grid-column-start: 3;
+  grid-column-end: 12;
+}
+
+.search > form > input {
+  height: 40px;
+  width: calc(100% - 40px);
+  border: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 4px 0 0 4px;
+  padding: 0 20px;
+  font-size: 18px;
+  outline: none;
+}
+
+.search > form > button {
+  height: 40px;
+  width: 40px;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  padding: 0;
+  background-color: #eee;
+  outline: none;
+  cursor: pointer;
+}
+
+.search > form > button:hover {
+  background-color: #e1e1e1;
+}
+
+.search > form > button > img {
+  width: 20px;
+  height: 20px;
+}
+/*# sourceMappingURL=Search.css.map */

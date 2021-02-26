@@ -1,0 +1,54 @@
+.container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 16px (1fr)[10] 16px;
+      grid-template-columns: 16px repeat(10, 1fr) 16px;
+  width: 100%;
+  max-width: 576px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+.header-app {
+  position: fixed;
+  width: 100%;
+  background-color: #ffe600;
+  padding: 10px 0;
+  z-index: 9999;
+  text-align: center;
+}
+
+.header-app > .container {
+  -ms-grid-columns: 16px 90.88889px (1fr)[9] 16px;
+      grid-template-columns: 16px 90.88889px repeat(9, 1fr) 16px;
+  -ms-grid-rows: 40px;
+      grid-template-rows: 40px;
+}
+
+.header-logo {
+  height: 40px;
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  text-align: left;
+}
+
+.header-logo img {
+  height: 100%;
+}
+/*# sourceMappingURL=AppHeader.css.map */

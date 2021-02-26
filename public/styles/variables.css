@@ -1,0 +1,27 @@
+.container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 16px (1fr)[10] 16px;
+      grid-template-columns: 16px repeat(10, 1fr) 16px;
+  width: 100%;
+  max-width: 576px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+/*# sourceMappingURL=variables.css.map */

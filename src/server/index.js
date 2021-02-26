@@ -1,42 +1,19 @@
+// Module
 import express from 'express';
-import path from 'path';
-import axios from 'axios';
-import React from 'react';
-import ReactDom from 'react-dom/server';
 
-import App from '../client/components/App';
-
+// Config
 const app = express();
+var port = 3001;
 
-app.use(
-  '/static',
-  express.static(path.join(__dirname, '..', '..', 'dist', 'static'))
-);
+// Route
+var routes_api = require('../../server_routes/routes_api');
 
-app.get('/', async (req, res) => {
-  // const response = await axios('http://localhost:4000/items');
-  // const items = response.data;
-  const root = (
-    <html>
-      <body>
-        <div id='root'>
-          <App />
-        </div>
+// Server
+app.use(express.static(__dirname + 'public'));
+app.use('/api', routes_api);
 
-        {/* <script
-                    dangerouslySetInnerHTML={{
-                        __html: `window.__data__ = ${JSON.stringify(items)};`
-                    }}
-                /> */}
-        <script src='/static/bundle.js'></script>
-      </body>
-    </html>
-  );
-  const html = ReactDom.renderToString(root);
-
-  res.send(html);
+app.listen(port, function () {
+  console.log('Listening at http://localhost:' + port);
 });
 
-app.listen(3000, () => {
-  console.log('server started: http://localhost:3000');
-});
+module.exports = app;

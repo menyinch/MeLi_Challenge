@@ -2,19 +2,15 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-
   context: path.resolve(__dirname, 'src/client'),
-
   entry: {
-    app: './index.js',
+    app: './index.jsx',
   },
-
   output: {
     publicPath: '/',
     path: path.resolve(__dirname, 'dist/static'),
     filename: 'bundle.js',
   },
-
   module: {
     rules: [
       {
@@ -26,14 +22,26 @@ module.exports = {
         test: /\.scss$/,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader,
+            loader: 'style-loader',
           },
-          'css-loader',
-          'sass-loader',
+          {
+            loader: 'css-loader',
+          },
+          {
+            loader: 'sass-loader',
+          },
         ],
       },
     ],
   },
-
-  devtool: 'inline-source-map',
+  devServer: {
+    port: 3000,
+    historyApiFallback: true,
+    proxy: {
+      '/api/*': {
+        target: 'http://localhost:3001/',
+        secure: 'false',
+      },
+    },
+  },
 };
